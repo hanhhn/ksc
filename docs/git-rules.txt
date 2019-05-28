@@ -1,0 +1,15 @@
+# repo: https://github.com/DuyLuongPhung/navi-ch.git
+# branch to base: develop
+
+Rules
+#1: always branch from develop
+#2: single commit - 1 commit for only 1 task meaning
+#3: branch prefix: features/{screen-page}-{short-description}
+	- screen-page: screen name with uppercase
+	- short-description: short meaning description for task (< 30 characters)
+	
+	ex: features/HOME-deffine-layout-structre
+#4: always create pull request to develop
+#5: always run format code with prettier and typescript hero before commit
+#6: not work with master branch
+#7: delete branch after merge pull request

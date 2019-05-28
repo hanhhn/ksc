@@ -1,0 +1,18 @@
+#1: C# coding conventions - ref: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions
+#2: Typescript coding conventions - ref: https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines => can using for javascript
+#3: Team coding convetions rules:
+	- File naming:
+		+ using '.' to split type for typescript, css, html file, ex: common.service.ts, home.component.ts
+		+ using '-' to split meaning words for typescript, css, html file, ex: product-category.service.cs
+		+ using Camel case for define c# file name, ex: CommonService.cs
+	- Variables naming:
+		+ camel case
+		+ prefix '_' for private variables, ex: private _isProductExist
+		+ max 3 meaning words, ex: productShortCategory
+		+ define full word not short word, ex: productShortCategory, not: prodShortCat
+		+ always define clear scope for variables with: public, private, protected
+	- Function:
+		+ naming: camel case with first upper character, full word not short word, max 5 words, clear scope
+		+ always have return, if not return any thing then return void
+		+ clear code and clear meaning
+		+ maxlength of code's line is 140 character

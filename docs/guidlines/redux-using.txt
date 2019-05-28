@@ -1,0 +1,16 @@
+STEPS to define, register reducer:
+1. Define action into 'src/app/actions'
+2. Define reducer into 'src/app/reducers'
+
+## common reducers -  using for all screen pages
+3. Add reducer to 'commonReducers' into 'src/app/reducers/index.js'
+
+## screen page reducers - using for only this screen page
+3. Define 'Route' with 'routeRender' function from 'src/app/app.routing.js'
+
+
+USING dispatch action into template/component/page:
+
+1. Define map stored state to this template properites, ex: 'src/app/shared/components/header.component.js' with 'mapStateToProps' fucntion.
+2. Connect this component/page with store instance, ex: 'src/app/shared/components/header.component.js'
+

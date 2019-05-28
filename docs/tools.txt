@@ -1,0 +1,11 @@
+# git - github: https://github.com/DuyLuongPhung/navi-ch.git
+# visual studio 2017
+# visual code lastest
+# post man lastest
+# photoshop cs6 (optional)
+
+
+Extension for visual code
+1. Prettier
+2. Tslint
+3. npm Intellisense

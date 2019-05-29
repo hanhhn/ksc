@@ -6,9 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Authentication\" />
-    <Folder Include="Controller\" />
     <Folder Include="Attributes\" />
-    <Folder Include="Request\" />
   </ItemGroup>
 
 </Project>

@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UnitOfWork\" />
-    <Folder Include="Service\" />
-    <Folder Include="Repository\" />
+    <ProjectReference Include="..\Cf.Core.Common\Cf.Core.Common.csproj" />
+    <ProjectReference Include="..\Cf.Core.DataAccess\Cf.Core.DataAccess.csproj" />
+    <ProjectReference Include="..\Cf.Core\Cf.Core.csproj" />
   </ItemGroup>
 
 </Project>

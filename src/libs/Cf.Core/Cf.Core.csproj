@@ -5,14 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Configure\" />
-    <Folder Include="Exeptions\" />
-    <Folder Include="Logs\" />
-    <Folder Include="Crypto\" />
-    <Folder Include="Entity\" />
     <Folder Include="Attributes\" />
-    <Folder Include="Files\" />
-    <Folder Include="Caches\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cf.Core.Common\Cf.Core.Common.csproj" />
   </ItemGroup>
 
 </Project>

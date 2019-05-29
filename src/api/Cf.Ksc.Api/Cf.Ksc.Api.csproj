@@ -10,4 +10,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\libs\Cf.Core.Common\Cf.Core.Common.csproj" />
+    <ProjectReference Include="..\..\libs\Cf.Core.WebApi\Cf.Core.WebApi.csproj" />
+    <ProjectReference Include="..\Cf.Ksc.Repository\Cf.Ksc.Repository.csproj" />
+    <ProjectReference Include="..\Cf.Ksc.Service\Cf.Ksc.Service.csproj" />
+  </ItemGroup>
+
 </Project>

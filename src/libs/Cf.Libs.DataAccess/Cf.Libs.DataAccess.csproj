@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="Context\" />
+    <Folder Include="Provider\" />
+    <Folder Include="Seed\" />
+  </ItemGroup>
+
+</Project>

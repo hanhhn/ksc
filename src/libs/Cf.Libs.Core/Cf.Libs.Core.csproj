@@ -18,4 +18,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Cf.Libs.Common\Cf.Libs.Common.csproj" />
+  </ItemGroup>
+
 </Project>

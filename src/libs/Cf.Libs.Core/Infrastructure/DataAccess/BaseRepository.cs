@@ -35,7 +35,7 @@ namespace Cf.Libs.Core.Infrastructure.DataAccess
             return DbSet.Where(filter);
         }
 
-        public virtual IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> filter, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy)
+        public virtual IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> filter, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy)
         {
             return null;
         }
@@ -43,6 +43,11 @@ namespace Cf.Libs.Core.Infrastructure.DataAccess
         public virtual TEntity Get(params object[] keyValues)
         {
             return DbSet.Find(keyValues);
+        }
+
+        public virtual IEnumerable<TEntity> GetAll()
+        {
+            return DbSet.AsEnumerable();
         }
 
         public virtual void Add(TEntity entity)

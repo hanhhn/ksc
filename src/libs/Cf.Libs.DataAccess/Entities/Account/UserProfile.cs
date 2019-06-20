@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Cf.Libs.Core.Infrastructure.Entity;
 
 namespace Cf.Libs.DataAccess.Entities.Account
 {
-    class UserProfile
+    public class UserProfile : BaseEntity<int>
     {
     }
 }

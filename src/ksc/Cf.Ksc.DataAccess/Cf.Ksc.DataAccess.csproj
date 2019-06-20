@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Context\" />
     <Folder Include="Entities\" />
     <Folder Include="Mapping\" />
     <Folder Include="Seed\" />

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cf.Libs.Core.Infrastructure.DataAccess
 {
-    class IDataAccessProvider
+    public interface IDataAccessProvider
     {
     }
 }

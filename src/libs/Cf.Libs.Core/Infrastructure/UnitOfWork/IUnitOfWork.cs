@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Cf.Libs.Core.Infrastructure.UnitOfWork
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork
     {
+        int SaveChanges();
     }
 }

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cf.Libs.Common.BaseEntity
+namespace Cf.Libs.Core.Infrastructure.Entity
 {
     public interface IChangeableEntity
     {
         DateTime CreateDate { get; set; }
-        string CreateUser { get; set; }
+        string CreateUserId { get; set; }
         DateTime ModifiedDate { get; set; }
-        string ModifyUser { get; set; }
+        string ModifyUserId { get; set; }
         string UpdatedToken { get; set; }
     }
 }

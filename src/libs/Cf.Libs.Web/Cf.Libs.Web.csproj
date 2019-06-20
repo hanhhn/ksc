@@ -8,6 +8,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Globalization\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Attributes\" />
     <Folder Include="Seo\" />
   </ItemGroup>
 

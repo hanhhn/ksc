@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cf.Libs.Core.Infrastructure.Service
 {
-    interface IBaseService
+    public interface IBaseService
     {
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cf.Libs.Core.Infrastructure.Service
 {
-    class BaseService
+    public class BaseService : IBaseService
     {
     }
 }

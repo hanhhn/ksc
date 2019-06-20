@@ -29,7 +29,7 @@ namespace Cf.Libs.Core.Caching
             _provider.Set(key, data, TimeSpan.FromMinutes(cacheTime));
         }
 
-        public bool IsExists(string key)
+        public bool IsSet(string key)
         {
             return _provider.Exists(key);
         }

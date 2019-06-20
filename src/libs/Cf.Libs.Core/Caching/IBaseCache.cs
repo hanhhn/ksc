@@ -6,7 +6,7 @@ namespace Cf.Libs.Core.Caching
     {
         T Get<T>(string key, Func<T> acquire, int? cacheTime = null);
         void Set(string key, object data, int cacheTime);
-        bool IsExists(string key);
+        bool IsSet(string key);
         void Remove(string key);
         void RemoveByPrefix(string prefix);
         void Clear();

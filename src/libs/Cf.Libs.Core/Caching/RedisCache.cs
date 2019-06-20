@@ -1,11 +1,10 @@
 ﻿using Cf.Libs.Core.Configuration;
-using Microsoft.EntityFrameworkCore.Storage;
+using Newtonsoft.Json;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace Cf.Libs.Core.Caching
 {
@@ -22,7 +21,7 @@ namespace Cf.Libs.Core.Caching
 
             _perRequestCache = perRequestCache;
             _connection = connection;
-            _db = _connection.GetDatabase(config.RedisDatabaseId ?? RedisDatabaseNumber.Cache);
+            _db = _connection.GetDatabase(config.RedisDatabaseId <= 0 ? config.RedisDatabaseId : (int)RedisDatabaseNumber.Cache);
         }
         
         protected virtual IEnumerable<RedisKey> GetKeys(EndPoint endPoint, string prefix = null)
@@ -40,71 +39,6 @@ namespace Cf.Libs.Core.Caching
             return keys;
         }
 
-        protected virtual async Task<T> GetAsync<T>(string key)
-        {
-            //little performance workaround here:
-            //we use "PerRequestCacheManager" to cache a loaded object in memory for the current HTTP request.
-            //this way we won't connect to Redis server many times per HTTP request (e.g. each time to load a locale or setting)
-            if (_perRequestCache.IsSet(key))
-                return _perRequestCache.Get(key, () => default(T), 0);
-
-            //get serialized item from cache
-            var serializedItem = await _db.StringGetAsync(key);
-            if (!serializedItem.HasValue)
-                return default(T);
-
-            //deserialize item
-            var item = JsonConvert.DeserializeObject<T>(serializedItem);
-            if (item == null)
-                return default(T);
-
-            //set item in the per-request cache
-            _perRequestCache.Set(key, item, 0);
-
-            return item;
-        }
-
-        protected virtual async Task SetAsync(string key, object data, int cacheTime)
-        {
-            if (data == null)
-                return;
-
-            //set cache time
-            var expiresIn = TimeSpan.FromMinutes(cacheTime);
-
-            //serialize item
-            var serializedItem = JsonConvert.SerializeObject(data);
-
-            //and set it to cache
-            await _db.StringSetAsync(key, serializedItem, expiresIn);
-        }
-
-        protected virtual async Task<bool> IsSetAsync(string key)
-        {
-            //little performance workaround here:
-            //we use "PerRequestCacheManager" to cache a loaded object in memory for the current HTTP request.
-            //this way we won't connect to Redis server many times per HTTP request (e.g. each time to load a locale or setting)
-            if (_perRequestCache.IsSet(key))
-                return true;
-
-            return await _db.KeyExistsAsync(key);
-        }
-
-        public async Task<T> GetAsync<T>(string key, Func<Task<T>> acquire, int? cacheTime = null)
-        {
-            //item already is in cache, so return it
-            if (await IsSetAsync(key))
-                return await GetAsync<T>(key);
-
-            //or create it using passed function
-            var result = await acquire();
-
-            //and set in cache (if cache time is defined)
-            if ((cacheTime ?? NopCachingDefaults.CacheTime) > 0)
-                await SetAsync(key, result, cacheTime ?? NopCachingDefaults.CacheTime);
-
-            return result;
-        }
 
         public virtual T Get<T>(string key)
         {
@@ -140,8 +74,8 @@ namespace Cf.Libs.Core.Caching
             var result = acquire();
 
             //and set in cache (if cache time is defined)
-            if ((cacheTime ?? NopCachingDefaults.CacheTime) > 0)
-                Set(key, result, cacheTime ?? NopCachingDefaults.CacheTime);
+            if ((cacheTime ?? CachingDefaults.CacheTime) > 0)
+                Set(key, result, cacheTime ?? CachingDefaults.CacheTime);
 
             return result;
         }
@@ -175,7 +109,7 @@ namespace Cf.Libs.Core.Caching
         public virtual void Remove(string key)
         {
             //we should always persist the data protection key list
-            if (key.Equals(NopCachingDefaults.RedisDataProtectionKey, StringComparison.OrdinalIgnoreCase))
+            if (key.Equals(CachingDefaults.RedisDataProtectionKey, StringComparison.OrdinalIgnoreCase))
                 return;
 
             //remove item from caches
@@ -214,8 +148,6 @@ namespace Cf.Libs.Core.Caching
 
         public virtual void Dispose()
         {
-            //if (_connectionWrapper != null)
-            //    _connectionWrapper.Dispose();
         }
     }
 }

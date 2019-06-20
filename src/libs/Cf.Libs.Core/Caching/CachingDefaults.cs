@@ -3,6 +3,6 @@
     public class CachingDefaults
     {
         public static int CacheTime => 60;
-        public static string RedisDataProtectionKey => "Nop.DataProtectionKeys";
+        public static string RedisDataProtectionKey => "DataProtectionKeys";
     }
 }

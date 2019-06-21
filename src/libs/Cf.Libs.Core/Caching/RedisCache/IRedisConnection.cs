@@ -2,7 +2,7 @@
 using System;
 using System.Net;
 
-namespace Cf.Libs.Core.Caching
+namespace Cf.Libs.Core.Caching.RedisCache
 {
     public interface IRedisConnection : IDisposable
     {

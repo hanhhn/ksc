@@ -1,4 +1,6 @@
-﻿using Cf.Libs.Core.Configuration;
+﻿using Cf.Libs.Core.Caching.BaseCache;
+using Cf.Libs.Core.Caching.PerRequest;
+using Cf.Libs.Core.Configuration;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 using System;
@@ -6,15 +8,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace Cf.Libs.Core.Caching
+namespace Cf.Libs.Core.Caching.RedisCache
 {
-    public class RedisCache : IBaseCache
+    public class RedisCache : IRedisCache
     {
-        private readonly IBaseCache _perRequestCache;
+        private readonly IRequestCache _perRequestCache;
         private readonly IRedisConnection _connection;
         private readonly IDatabase _db;
 
-        public RedisCache(IBaseCache perRequestCache, IRedisConnection connection, CfConfig config)
+        public RedisCache(IRequestCache perRequestCache, IRedisConnection connection, CfConfig config)
         {
             if (string.IsNullOrEmpty(config.RedisConnectionString))
                 throw new Exception("Redis connection string is empty");

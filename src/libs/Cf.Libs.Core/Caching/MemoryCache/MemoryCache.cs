@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cf.Libs.Core.Caching.MemoryCache
 {
-    public class MemoryCache : ILocker, IMemoryCache
+    public class MemoryCache : IMemoryCache
     {
         private readonly IEasyCachingProvider _provider;
 

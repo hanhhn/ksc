@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cf.Libs.Core.Caching
+namespace Cf.Libs.Core.Caching.RedisCache
 {
     public enum RedisDatabaseNumber : int
     {

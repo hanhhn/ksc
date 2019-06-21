@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cf.Libs.Core.Caching
+namespace Cf.Libs.Core.Caching.BaseCache
 {
     public interface IBaseCache : IDisposable
     {

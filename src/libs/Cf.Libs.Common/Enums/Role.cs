@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cf.Libs.Common.Enums
 {
-    class Role
+    public enum Role
     {
     }
 }

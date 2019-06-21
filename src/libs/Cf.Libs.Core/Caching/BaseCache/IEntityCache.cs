@@ -1,4 +1,4 @@
-﻿namespace Cf.Libs.Core.Caching
+﻿namespace Cf.Libs.Core.Caching.BaseCache
 {
     public interface IEntityCache
     {

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Cf.Libs.Common.Enums;
 
 namespace Cf.Libs.Common.BaseObject
 {
-    class Messages
+    public class Messages
     {
+        public MsgType Type { private get; set; }
+        public string Content { private get; set; }
     }
 }

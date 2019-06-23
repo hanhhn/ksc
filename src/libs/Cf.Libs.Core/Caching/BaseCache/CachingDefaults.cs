@@ -2,7 +2,7 @@
 {
     public class CachingDefaults
     {
-        public static int CacheTime => 60;
-        public static string RedisDataProtectionKey => "DataProtectionKeys";
+        public const int CacheTime = 60;
+        public const string RedisDataProtectionKey = "DataProtectionKeys";
     }
 }

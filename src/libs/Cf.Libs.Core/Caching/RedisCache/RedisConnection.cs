@@ -1,15 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Net;
-using Cf.Libs.Core.Caching.BaseCache;
-using Cf.Libs.Core.Configuration;
+﻿using Cf.Libs.Core.Configuration;
 using RedLockNet.SERedis;
 using RedLockNet.SERedis.Configuration;
 using StackExchange.Redis;
+using System;
+using System.Linq;
+using System.Net;
 
 namespace Cf.Libs.Core.Caching.RedisCache
 {
-    public class RedisConnection : IRedisConnection, ILocker
+    public class RedisConnection : IRedisConnection
     {
         private readonly CfConfig _config;
         private readonly object _lock = new object();

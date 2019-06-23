@@ -8,5 +8,6 @@ namespace Cf.Libs.Core.Request
     {
         int UserId { get; set; }
         string UserName { get; set; }
+        string UserAgent { get; set; }
     }
 }

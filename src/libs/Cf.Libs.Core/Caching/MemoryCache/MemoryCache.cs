@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cf.Libs.Core.Caching.MemoryCache
 {
-    public class MemoryCache : IMemoryCache
+    public class MemoryCache : IMemoryCache, ILocker
     {
         private readonly IEasyCachingProvider _provider;
 
@@ -15,21 +15,21 @@ namespace Cf.Libs.Core.Caching.MemoryCache
             _provider = provider;
         }
 
-        public T Get<T>(string key, Func<T> acquire, int? cacheTime = null)
+        public T Get<T>(string key, Func<T> acquire, int cacheTime = CachingDefaults.CacheTime)
         {
             if (cacheTime <= 0)
                 return acquire();
 
-            return _provider.Get(key, acquire, TimeSpan.FromMinutes(cacheTime ?? CachingDefaults.CacheTime))
+            return _provider.Get(key, acquire, TimeSpan.FromMinutes(cacheTime))
                 .Value;
         }
 
-        public async Task<T> GetAsync<T>(string key, Func<Task<T>> acquire, int? cacheTime = null)
+        public async Task<T> GetAsync<T>(string key, Func<Task<T>> acquire, int cacheTime = CachingDefaults.CacheTime)
         {
             if (cacheTime <= 0)
                 return await acquire();
 
-            var t = await _provider.GetAsync(key, acquire, TimeSpan.FromMinutes(cacheTime ?? CachingDefaults.CacheTime));
+            var t = await _provider.GetAsync(key, acquire, TimeSpan.FromMinutes(cacheTime));
             return t.Value;
         }
 

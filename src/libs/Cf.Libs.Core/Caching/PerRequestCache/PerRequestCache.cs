@@ -1,5 +1,6 @@
 ﻿using Cf.Libs.Core.Caching.BaseCache;
 using Cf.Libs.Core.Caching.PerRequest;
+using Cf.Libs.Core.Caching.PerRequestCache;
 using Cf.Libs.Core.ComponentModel;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace Cf.Libs.Core.Caching
+namespace Cf.Libs.Core.PerRequestCache
 {
     /// <summary>
     /// Represents a manager for caching during an HTTP request (short term caching)

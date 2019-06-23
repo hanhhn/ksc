@@ -2,7 +2,7 @@
 
 namespace Cf.Libs.Core.Caching.PerRequest
 {
-    public interface IMemoryCache : IStaticCache, ILocker
+    public interface IMemoryCache : IStaticCache
     {
     }
 }

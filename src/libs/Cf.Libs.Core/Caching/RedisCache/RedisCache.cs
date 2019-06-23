@@ -98,7 +98,7 @@ namespace Cf.Libs.Core.Caching.RedisCache
         }
 
      
-        public async Task<T> GetAsync<T>(string key, Func<Task<T>> acquire, int? cacheTime = null)
+        public async Task<T> GetAsync<T>(string key, Func<Task<T>> acquire, int cacheTime = CachingDefaults.CacheTime)
         {
             //item already is in cache, so return it
             if (await IsSetAsync(key))
@@ -108,8 +108,8 @@ namespace Cf.Libs.Core.Caching.RedisCache
             var result = await acquire();
 
             //and set in cache (if cache time is defined)
-            if ((cacheTime ?? CachingDefaults.CacheTime) > 0)
-                await SetAsync(key, result, cacheTime ?? CachingDefaults.CacheTime);
+            if (cacheTime > 0)
+                await SetAsync(key, result, cacheTime);
 
             return result;
         }
@@ -138,7 +138,7 @@ namespace Cf.Libs.Core.Caching.RedisCache
             return item;
         }
 
-        public virtual T Get<T>(string key, Func<T> acquire, int? cacheTime = null)
+        public virtual T Get<T>(string key, Func<T> acquire, int cacheTime = CachingDefaults.CacheTime)
         {
             //item already is in cache, so return it
             if (IsSet(key))
@@ -148,8 +148,8 @@ namespace Cf.Libs.Core.Caching.RedisCache
             var result = acquire();
 
             //and set in cache (if cache time is defined)
-            if ((cacheTime ?? CachingDefaults.CacheTime) > 0)
-                Set(key, result, cacheTime ?? CachingDefaults.CacheTime);
+            if (cacheTime > 0)
+                Set(key, result, cacheTime);
 
             return result;
         }

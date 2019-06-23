@@ -7,7 +7,7 @@ using System.Linq;
 namespace Cf.Libs.Core.Infrastructure.UnitOfWork
 {
     public class UnitOfWork<TContext> : IUnitOfWork, IDisposable
-         where TContext : DbContext, new()
+         where TContext : DbContext
     {
         private readonly IRequestContext _request;
         public readonly TContext _context;

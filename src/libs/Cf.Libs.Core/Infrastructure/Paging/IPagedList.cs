@@ -2,7 +2,7 @@
 
 namespace Cf.Libs.Core.Infrastructure.Paging
 {
-    public interface IPagedList<T> : IList<T>
+    public interface IPagedList<T>
     {
         int PageIndex { get; }
 

@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Entities\" />
-    <Folder Include="Seed\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -42,21 +42,21 @@ namespace Cf.Libs.Core.Infrastructure.Entity
             }
         }
 
-        public void Default(bool isAdd, int createUserId, int modifyUserId)
+        public void Default(bool isAdd, int userId)
         {
             DateTime date = DateTime.Now;
             if (isAdd)
             {
                 CreateDate = date;
-                CreateUserId = createUserId.ToString();
+                CreateUserId = userId.ToString();
                 ModifiedDate = date;
-                ModifyUserId = modifyUserId.ToString();
+                ModifyUserId = userId.ToString();
                 UpdatedToken = Guid.NewGuid().ToString();
             }
             else
             {
                 ModifiedDate = date;
-                ModifyUserId = modifyUserId.ToString();
+                ModifyUserId = userId.ToString();
                 UpdatedToken = Guid.NewGuid().ToString();
             }
         }

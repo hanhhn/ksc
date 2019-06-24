@@ -4,21 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Cf.Libs.Core.Infrastructure.DataAccess
 {
-    public abstract class BaseRepository<TContext, TEntity> : IBaseRepository<TEntity>
-            where TContext : DbContext, new()
-            where TEntity : class, IEntityRoot
+    public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
+        where TEntity : class, IEntityRoot
     {
-        public readonly TContext DbContext;
+        public readonly DbContext DbContext;
 
         public BaseRepository()
         {
         }
 
-        public BaseRepository(TContext context)
+        public BaseRepository(DbContext context)
         {
             DbContext = context;
         }
@@ -49,7 +47,7 @@ namespace Cf.Libs.Core.Infrastructure.DataAccess
 
         public virtual IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> filter, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy)
         {
-            return null;
+            return orderBy(DbSet.Where(filter));
         }
 
         public virtual TEntity Get(params object[] keyValues)

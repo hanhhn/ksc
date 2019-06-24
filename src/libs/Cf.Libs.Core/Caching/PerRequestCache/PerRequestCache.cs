@@ -1,5 +1,4 @@
 ﻿using Cf.Libs.Core.Caching.BaseCache;
-using Cf.Libs.Core.Caching.PerRequest;
 using Cf.Libs.Core.Caching.PerRequestCache;
 using Cf.Libs.Core.ComponentModel;
 using Microsoft.AspNetCore.Http;
@@ -33,7 +32,7 @@ namespace Cf.Libs.Core.PerRequestCache
             return _httpContextAccessor.HttpContext.Items;
         }
 
-        public virtual T Get<T>(string key, Func<T> acquire, int? cacheTime = null)
+        public virtual T Get<T>(string key, Func<T> acquire, int cacheTime = CachingDefaults.CacheTime)
         {
             IDictionary<object, object> items;
 
@@ -51,7 +50,7 @@ namespace Cf.Libs.Core.PerRequestCache
             //or create it using passed function
             var result = acquire();
 
-            if (result == null || (cacheTime ?? CachingDefaults.CacheTime) <= 0)
+            if (result == null || cacheTime <= 0)
                 return result;
 
             //and set in cache (if cache time is defined)

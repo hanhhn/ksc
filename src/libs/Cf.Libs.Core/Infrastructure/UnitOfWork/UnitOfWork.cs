@@ -1,5 +1,4 @@
 ﻿using Cf.Libs.Core.Infrastructure.Entity;
-using Cf.Libs.Core.Request;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -9,12 +8,10 @@ namespace Cf.Libs.Core.Infrastructure.UnitOfWork
     public class UnitOfWork<TContext> : IUnitOfWork, IDisposable
          where TContext : DbContext
     {
-        private readonly IRequestContext _request;
         public readonly TContext _context;
 
-        public UnitOfWork(TContext context, IRequestContext request)
+        public UnitOfWork(TContext context)
         {
-            _request = request;
             _context = context;
         }
 
@@ -30,13 +27,13 @@ namespace Cf.Libs.Core.Infrastructure.UnitOfWork
 
                     if (dbEntity.State == EntityState.Added)
                     {
-                        entity.Default(true, _request.UserId, _request.UserId);
+                        entity.Default(true, 0);
                         continue;
                     }
 
                     if (dbEntity.State == EntityState.Modified)
                     {
-                        entity.Default(false, _request.UserId, _request.UserId);
+                        entity.Default(false, 0);
                     }
                 }
             }

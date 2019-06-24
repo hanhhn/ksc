@@ -1,5 +1,5 @@
 ﻿using Cf.Libs.Core.Caching.BaseCache;
-using Cf.Libs.Core.Caching.PerRequest;
+using Cf.Libs.Core.Caching.PerRequestCache;
 using Cf.Libs.Core.Configuration;
 using Newtonsoft.Json;
 using StackExchange.Redis;

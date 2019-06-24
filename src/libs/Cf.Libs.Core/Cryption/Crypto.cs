@@ -18,7 +18,7 @@ namespace Cf.Libs.Core.Cryption
             return Convert.ToBase64String(byteHash);
         }
 
-        public static String Sha256(String value)
+        public static string Sha256(string value)
         {
             var Sb = new StringBuilder();
 
@@ -34,11 +34,11 @@ namespace Cf.Libs.Core.Cryption
             return Sb.ToString();
         }
 
-        public static String Sha256ByLinq(String value)
+        public static string Sha256ByLinq(string value)
         {
             using (var hash = SHA256Managed.Create())
             {
-                return String.Concat(hash
+                return string.Concat(hash
                   .ComputeHash(Encoding.UTF8.GetBytes(value))
                   .Select(item => item.ToString("x2")));
             }

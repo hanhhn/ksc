@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cf.Libs.Core.Configuration
 {
-    interface ISettings
+    public interface ISettings
     {
     }
 }

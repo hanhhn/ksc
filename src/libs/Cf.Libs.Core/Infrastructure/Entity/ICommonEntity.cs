@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Cf.Libs.Core.Infrastructure.Entity
+﻿namespace Cf.Libs.Core.Infrastructure.Entity
 {
-    public interface ICommonEntity<T>
+    public interface ICommonEntity<T> : IDeleteEntity
     {
-        T Id { get; set; }
-        bool IsDeleted { get; }
-        bool IsVisible { get; set; }
+        T Id { get; }
         string Note { get; set; }
     }
 }

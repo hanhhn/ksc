@@ -10,5 +10,6 @@ namespace Cf.Libs.Core.Infrastructure.DataAccess
         void Add(TEntity entity);
         void Remove(TEntity entity);
         void Delete(TEntity entity);
+        void UnDelete(TEntity entity);
     }
 }

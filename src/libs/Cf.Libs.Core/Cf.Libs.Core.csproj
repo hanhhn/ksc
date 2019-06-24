@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Mapper\" />
+    <Compile Remove="Infrastructure\Mapper\**" />
+    <EmbeddedResource Remove="Infrastructure\Mapper\**" />
+    <None Remove="Infrastructure\Mapper\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Attributes\" />
   </ItemGroup>
 

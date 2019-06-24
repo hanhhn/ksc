@@ -30,21 +30,13 @@ namespace Cf.Libs.Core.Infrastructure.UnitOfWork
 
                     if (dbEntity.State == EntityState.Added)
                     {
-                        DateTime date = DateTime.Now;
-                        entity.CreateDate = date;
-                        entity.CreateUserId = _request.UserId.ToString();
-                        entity.ModifiedDate = date;
-                        entity.ModifyUserId = _request.UserId.ToString();
-                        entity.UpdatedToken = Guid.NewGuid().ToString();
+                        entity.Default(true, _request.UserId, _request.UserId);
                         continue;
                     }
 
                     if (dbEntity.State == EntityState.Modified)
                     {
-                        DateTime date = DateTime.Now;
-                        entity.ModifiedDate = date;
-                        entity.ModifyUserId = _request.UserId.ToString();
-                        entity.UpdatedToken = Guid.NewGuid().ToString();
+                        entity.Default(false, _request.UserId, _request.UserId);
                     }
                 }
             }

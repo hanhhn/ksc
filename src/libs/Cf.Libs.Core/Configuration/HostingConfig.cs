@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cf.Libs.Core.Configuration
 {
-    class HostingConfig
+    public class HostingConfig
     {
     }
 }

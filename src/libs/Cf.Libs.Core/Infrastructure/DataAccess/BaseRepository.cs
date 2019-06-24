@@ -8,22 +8,34 @@ using System.Text;
 
 namespace Cf.Libs.Core.Infrastructure.DataAccess
 {
-    public abstract class RepositoryBase<TContext, TEntity> : IRepositoryBase<TEntity>
+    public abstract class BaseRepository<TContext, TEntity> : IBaseRepository<TEntity>
             where TContext : DbContext, new()
             where TEntity : class, IEntityRoot
     {
         public readonly TContext DbContext;
 
-        public RepositoryBase()
+        public BaseRepository()
         {
         }
 
-        public RepositoryBase(TContext context)
+        public BaseRepository(TContext context)
         {
             DbContext = context;
         }
 
-        protected DbSet<TEntity> DbSet => DbContext.Set<TEntity>();
+        protected DbSet<TEntity> DbSet
+        {
+            get
+            {
+                DbSet<TEntity> entity = DbContext.Set<TEntity>();
+                if (entity == null)
+                {
+                    throw new NullReferenceException("Entity can not be set!");
+                }
+
+                return entity;
+            }
+        }
 
         public virtual IQueryable<TEntity> GetQuery()
         {
@@ -62,7 +74,20 @@ namespace Cf.Libs.Core.Infrastructure.DataAccess
 
         public virtual void Delete(TEntity entity)
         {
-            DbSet.Remove(entity);
+            IDeleteEntity common = entity as IDeleteEntity;
+            if (common != null)
+            {
+                common.Delete();
+            }
+        }
+
+        public virtual void UnDelete(TEntity entity)
+        {
+            IDeleteEntity common = entity as IDeleteEntity;
+            if (common != null)
+            {
+                common.UnDelete();
+            }
         }
     }
 }

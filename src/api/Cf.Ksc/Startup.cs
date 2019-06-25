@@ -29,6 +29,9 @@ namespace Cf.Ksc
         {
             services.AddCustomDbContext(Configuration);
 
+            MapperConfigure.Initialize();
+
+            ServiceRegister.Initialize(services)
 
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

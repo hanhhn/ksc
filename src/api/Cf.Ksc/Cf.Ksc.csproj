@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\ksc\Cf.Ksc.DataAccess\Cf.Ksc.DataAccess.csproj" />
+    <ProjectReference Include="..\..\ksc\Cf.Ksc.Service\Cf.Ksc.Service.csproj" />
+    <ProjectReference Include="..\..\libs\Cf.Libs.Service\Cf.Libs.Service.csproj" />
   </ItemGroup>
 
 </Project>

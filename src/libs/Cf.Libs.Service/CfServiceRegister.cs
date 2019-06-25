@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Cf.Libs.Service
 {
-    public static class CfServiceBuilder
+    public static class CfServiceRegister
     {
         public static void AddCfServices(this IServiceCollection services)
         {

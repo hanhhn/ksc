@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Cf.Libs.DataAccess
 {
-    public static class CoreDataAccessServices
+    public static class CfDataAccessRegister
     {
         public static void AddCoreRepositories(this IServiceCollection services)
         {

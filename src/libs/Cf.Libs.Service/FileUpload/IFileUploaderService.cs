@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cf.Libs.Core.Exeptions
+namespace Cf.Libs.Service.FileUpload
 {
-    class WebApplicationException
+    public interface IFileUploaderService
     {
     }
 }

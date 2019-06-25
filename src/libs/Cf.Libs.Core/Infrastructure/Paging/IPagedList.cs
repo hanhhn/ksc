@@ -1,4 +1,6 @@
-﻿namespace Cf.Libs.Core.Infrastructure.Paging
+﻿using System.Collections.Generic;
+
+namespace Cf.Libs.Core.Infrastructure.Paging
 {
     public interface IPagedList<T>
     {
@@ -6,5 +8,6 @@
         int PageSize { get; }
         int TotalRecord { get; }
         int TotalPage { get; }
+        IEnumerable<T> DataSource { get;}
     }
 }

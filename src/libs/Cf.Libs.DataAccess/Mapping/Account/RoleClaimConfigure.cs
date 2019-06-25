@@ -8,9 +8,9 @@ namespace Cf.Libs.DataAccess.Mapping.Account
     {
         public override void Configure(EntityTypeBuilder<RoleClaim> builder)
         {
-            builder.ToTable(nameof(RoleClaim));
-
             base.Configure(builder);
+
+            builder.ToTable(nameof(RoleClaim));
         }
     }
 }

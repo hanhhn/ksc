@@ -6,31 +6,14 @@ namespace Cf.Libs.Core.Infrastructure.Entity
 {
     public class BaseEntity<T> : IEntityRoot, IChangeableEntity, ICommonEntity<T>
     {
-        [Column(Order = 0)]
-        public T Id { get; set; }
-
-        [Column(Order = 93)]
+        public T Id { get; private set; }
         public bool IsDeleted { get; private set; }
-
-        [Column(Order = 94)]
         public bool IsVisible { get; set; }
-
-        [Column(Order = 95)]
         public DateTime CreateDate { get; private set; }
-
-        [Column(Order = 96)]
         public string CreateUserId { get; private set; }
-
-        [Column(Order = 97)]
         public DateTime ModifiedDate { get; private set; }
-
-        [Column(Order = 98)]
         public string ModifyUserId { get; private set; }
-
-        [Column(Order = 99)]
         public string UpdatedToken { get; private set; }
-
-        [Column(Order = 100)]
         public string Note { get; set; }
 
         public BaseEntity()

@@ -14,9 +14,8 @@ namespace Cf.Ksc.DataAccess.DbContext
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            TablesBuilder.Build(builder);
-
             base.OnModelCreating(builder);
+            TablesBuilder.Build(builder);
         }
     }
 }

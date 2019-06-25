@@ -16,11 +16,11 @@ namespace Cf.Libs.DataAccess.DbContext
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.HasDefaultSchema(SchemaDefault);
-
-            TablesBuilder.Build(builder);
+            //builder.HasDefaultSchema(SchemaDefault);
 
             base.OnModelCreating(builder);
+
+            TablesBuilder.Build(builder);
         }
     }
 }

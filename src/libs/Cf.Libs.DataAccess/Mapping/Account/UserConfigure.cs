@@ -8,9 +8,9 @@ namespace Cf.Libs.DataAccess.Mapping.Account
     {
         public override void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable(nameof(User));
-
             base.Configure(builder);
+
+            builder.ToTable(nameof(User));
         }
     }
 }

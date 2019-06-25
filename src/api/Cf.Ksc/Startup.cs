@@ -30,6 +30,7 @@ namespace Cf.Ksc
             services.AddCustomDbContext(Configuration);
 
 
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

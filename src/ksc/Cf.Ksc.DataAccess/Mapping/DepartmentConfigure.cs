@@ -9,9 +9,9 @@ namespace Cf.Ksc.DataAccess.Mapping
     {
         public override void Configure(EntityTypeBuilder<Department> builder)
         {
-            builder.ToTable("TestDepartment");
-
             base.Configure(builder);
+
+            builder.ToTable("Department");
         }
     }
 }

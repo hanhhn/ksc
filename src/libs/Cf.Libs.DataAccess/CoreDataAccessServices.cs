@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Cf.Libs.DataAccess
 {
-    public static class CfDataAccessBuilder
+    public static class CoreDataAccessServices
     {
-        public static void AddCfRepositories(this IServiceCollection services)
+        public static void AddCoreRepositories(this IServiceCollection services)
         {
             services.AddTransient<IUserProfileRepository, UserProfileRepository>();
         }

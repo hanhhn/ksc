@@ -2,7 +2,7 @@
 
 namespace Cf.Ksc.DataAccess
 {
-    public static class KscDataAccessBuilder
+    public static class KscDataAccessService
     {
         public static void AddKscRepositories(this IServiceCollection services)
         {

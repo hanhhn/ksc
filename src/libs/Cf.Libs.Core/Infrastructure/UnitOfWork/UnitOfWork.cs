@@ -17,6 +17,7 @@ namespace Cf.Libs.Core.Infrastructure.UnitOfWork
 
         public int SaveChanges()
         {
+            _context.ChangeTracker.DetectChanges();
             if (_context.ChangeTracker.HasChanges())
             {
                 foreach (var dbEntity in _context.ChangeTracker.Entries().Where(x => x.State == EntityState.Added || x.State == EntityState.Modified))

@@ -1,7 +1,8 @@
-﻿using Cf.Libs.DataAccess.DbContext;
+﻿using Cf.Ksc.DataAccess.Entities;
+using Cf.Libs.DataAccess.DbContext;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cf.Ksc.DataAccess.Context
+namespace Cf.Ksc.DataAccess.DbContext
 {
     public class KscDbContext : ApplicationDbContext
     {
@@ -9,9 +10,13 @@ namespace Cf.Ksc.DataAccess.Context
         {
         }
 
+        public DbSet<Department> Departments { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            TablesBuilder.Build(builder);
 
+            base.OnModelCreating(builder);
         }
     }
 }

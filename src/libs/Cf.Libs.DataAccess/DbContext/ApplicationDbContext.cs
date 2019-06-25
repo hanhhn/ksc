@@ -20,7 +20,7 @@ namespace Cf.Libs.DataAccess.DbContext
 
             TablesBuilder.Build(builder);
 
-            this.OnModelCreating(builder);
+            base.OnModelCreating(builder);
         }
     }
 }

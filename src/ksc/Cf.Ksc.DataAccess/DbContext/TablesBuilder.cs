@@ -1,11 +1,10 @@
-﻿using Cf.Libs.Core.Infrastructure.Entity;
-using Cf.Libs.DataAccess.Mapping;
+﻿using Cf.Libs.DataAccess.Mapping;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Cf.Libs.DataAccess.DbContext
+namespace Cf.Ksc.DataAccess.DbContext
 {
     public class TablesBuilder
     {

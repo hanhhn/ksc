@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Mapping\**" />
-    <EmbeddedResource Remove="Mapping\**" />
-    <None Remove="Mapping\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Repository\" />
   </ItemGroup>
 

@@ -31,7 +31,7 @@ namespace Cf.Ksc
 
             MapperConfigure.Initialize();
 
-            ServiceRegister.Initialize(services)
+            ServiceRegister.Initialize(services);
 
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

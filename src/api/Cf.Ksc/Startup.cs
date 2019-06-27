@@ -29,11 +29,14 @@ namespace Cf.Ksc
         {
             services.AddCustomDbContext(Configuration);
 
-            MapperConfigure.Initialize();
+            services.AddUnitOfWork();
 
-            ServiceRegister.Initialize(services);
+            services.AddMapper();
+
+            services.AddServicesAndRepository();
 
             services.AddCors();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

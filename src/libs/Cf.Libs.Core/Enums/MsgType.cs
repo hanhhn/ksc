@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cf.Libs.Core.Enums
 {
-    class MsgType
+    public class MsgType
     {
     }
 }

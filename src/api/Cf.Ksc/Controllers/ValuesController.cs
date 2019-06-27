@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cf.Libs.Service.Profile;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cf.Ksc.Controllers
@@ -10,10 +11,18 @@ namespace Cf.Ksc.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IUserProfileService _service;
+
+        public ValuesController(IUserProfileService service)
+        {
+            _service = service;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            _service.Count();
             return new string[] { "value1", "value2" };
         }
 

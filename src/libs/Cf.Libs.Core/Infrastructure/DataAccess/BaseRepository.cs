@@ -12,10 +12,6 @@ namespace Cf.Libs.Core.Infrastructure.DataAccess
     {
         public readonly DbContext DbContext;
 
-        public BaseRepository()
-        {
-        }
-
         public BaseRepository(DbContext context)
         {
             DbContext = context;
@@ -60,9 +56,14 @@ namespace Cf.Libs.Core.Infrastructure.DataAccess
             return DbSet.AsEnumerable();
         }
 
-        public virtual void Add(TEntity entity)
+        public virtual TEntity Add(TEntity entity)
         {
-            DbSet.Add(entity);
+            return DbSet.Add(entity).Entity;
+        }
+
+        public virtual TEntity Update(TEntity entity)
+        {
+            return DbSet.Update(entity).Entity;
         }
 
         public virtual void Remove(TEntity entity)

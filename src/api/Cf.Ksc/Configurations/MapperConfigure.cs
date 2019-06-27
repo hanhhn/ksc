@@ -1,11 +1,10 @@
-﻿using AutoMapper;
-using Cf.Libs.Service;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Cf.Ksc.Configurations
 {
-    public class MapperConfigure
+    public static class MapperConfigure
     {
-        public static void Initialize()
+        public static void AddMapper(this IServiceCollection services)
         {
         }
     }

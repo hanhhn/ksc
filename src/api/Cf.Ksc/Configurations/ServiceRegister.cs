@@ -1,18 +1,16 @@
 ﻿using Cf.Ksc.Service;
+using Cf.Libs.DataAccess;
 using Cf.Libs.Service;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Cf.Ksc.Configurations
 {
-    public class ServiceRegister
+    public static class ServiceRegister
     {
-        public static void Initialize(IServiceCollection services)
+        public static void AddServicesAndRepository(this IServiceCollection services)
         {
-            services.AddCfServices();
+            services.AddCoreRepositories();
+            services.AddCoreServices();
             services.AddKscServices();
         }
     }

@@ -8,7 +8,7 @@ namespace Cf.Libs.Core.Infrastructure.UnitOfWork
     public class UnitOfWork<TContext> : IUnitOfWork, IDisposable
          where TContext : DbContext
     {
-        public readonly TContext _context;
+        private readonly DbContext _context;
 
         public UnitOfWork(TContext context)
         {

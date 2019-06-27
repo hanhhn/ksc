@@ -7,10 +7,6 @@ namespace Cf.Ksc.Configurations
     {
         public static void Initialize()
         {
-            Mapper.Initialize(config =>
-            {
-                config.AddCfMapper();
-            });
         }
     }
 }

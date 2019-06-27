@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cf.Ksc.Repository
+namespace Cf.Libs.Core.Configuration
 {
-    class RepositoryBuilder
+    class AppSetting
     {
     }
 }

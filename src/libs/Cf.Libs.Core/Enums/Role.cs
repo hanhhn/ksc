@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cf.Libs.Common.Configuration
+namespace Cf.Libs.Core.Enums
 {
-    class AppSetting
+    class Role
     {
     }
 }

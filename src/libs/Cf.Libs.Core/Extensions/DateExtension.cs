@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cf.Libs.Common.Constants
+namespace Cf.Libs.Core.Extensions
 {
-    class Constants
+    class DateExtension
     {
     }
 }

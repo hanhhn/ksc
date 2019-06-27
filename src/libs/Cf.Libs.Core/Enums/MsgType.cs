@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cf.Libs.Common.Extensions
+namespace Cf.Libs.Core.Enums
 {
-    class StringExtension
+    class MsgType
     {
     }
 }

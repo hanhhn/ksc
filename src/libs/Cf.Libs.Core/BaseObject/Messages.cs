@@ -1,6 +1,6 @@
-﻿using Cf.Libs.Common.Enums;
+﻿using Cf.Libs.Core.Enums;
 
-namespace Cf.Libs.Common.BaseObject
+namespace Cf.Libs.Core.BaseObject
 {
     public class Messages
     {

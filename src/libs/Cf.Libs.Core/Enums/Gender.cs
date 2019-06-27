@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Cf.Libs.Common.Enums
+namespace Cf.Libs.Core.Enums
 {
-    public enum Role
+    class Gender
     {
     }
 }

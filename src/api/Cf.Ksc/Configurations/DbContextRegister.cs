@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Cf.Ksc.Configurations
 {
-    public static class DbContextExtensions
+    public static class DbContextRegister
     {
         public static void AddCustomDbContext(this IServiceCollection services, IConfiguration configuration)
         {

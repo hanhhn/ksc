@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cf.Libs.Core.Exeptions
 {
-    class PageNotFoundException
+    class PageNotFoundException : Exception
     {
+        public PageNotFoundException(string msg) : base(msg)
+        {
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Cf.Libs.Core.Infrastructure.Entity;
+﻿using Cf.Libs.Core.Exeptions;
+using Cf.Libs.Core.Infrastructure.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -39,7 +40,14 @@ namespace Cf.Libs.Core.Infrastructure.UnitOfWork
                 }
             }
 
-            return _context.SaveChanges();
+            try
+            {
+                return _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new InformationException("Unable to update or delete. The record modified by another user. Try again!");
+            }
         }
 
         private bool disposed = false;

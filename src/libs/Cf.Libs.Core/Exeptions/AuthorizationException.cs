@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cf.Libs.Core.Exeptions
 {
-    class AuthorizationException
+    public class AuthorizationException : Exception
     {
+        public AuthorizationException(string msg) : base(msg)
+        {
+        }
     }
 }

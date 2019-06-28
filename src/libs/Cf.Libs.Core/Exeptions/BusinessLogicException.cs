@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cf.Libs.Core.Exeptions
 {
-    class BusinessLogicException
+    public class BusinessLogicException : Exception
     {
+        public BusinessLogicException(string msg) : base(msg)
+        {
+
+        }
     }
 }

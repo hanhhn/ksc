@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cf.Libs.Core.Exeptions
 {
-    class InformationException
+    public class InformationException : Exception
     {
+        public InformationException(string msg) : base(msg)
+        {
+        }
     }
 }

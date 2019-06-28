@@ -7,7 +7,7 @@ namespace Cf.Libs.DataAccess
     {
         public static void AddCoreRepositories(this IServiceCollection services)
         {
-            services.AddTransient<IUserProfileRepository, UserProfileRepository>();
+            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
         }
     }
 }

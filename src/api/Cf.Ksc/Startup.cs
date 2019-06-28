@@ -29,11 +29,9 @@ namespace Cf.Ksc
         {
             services.AddCustomDbContext(Configuration);
 
-            services.AddUnitOfWork();
+            services.AddServicesAndRepository();
 
             services.AddMapper();
-
-            services.AddServicesAndRepository();
 
             services.AddCors();
 

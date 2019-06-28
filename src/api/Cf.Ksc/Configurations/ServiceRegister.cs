@@ -1,4 +1,5 @@
-﻿using Cf.Ksc.Service;
+﻿using Cf.Ksc.DataAccess;
+using Cf.Ksc.Service;
 using Cf.Libs.DataAccess;
 using Cf.Libs.Service;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ namespace Cf.Ksc.Configurations
         {
             services.AddCoreRepositories();
             services.AddCoreServices();
+            services.AddKscRepositories();
             services.AddKscServices();
         }
     }

@@ -1,10 +1,11 @@
-﻿using Cf.Libs.DataAccess.Entities.Account;
+﻿using Cf.Libs.Core.Infrastructure.Context;
+using Cf.Libs.DataAccess.Entities.Account;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cf.Libs.DataAccess.DbContext
 {
-    public class ApplicationDbContext : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
+    public class ApplicationDbContext : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>, IDbContext
     {
         private const string SchemaDefault = "cf";
 

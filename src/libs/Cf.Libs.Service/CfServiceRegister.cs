@@ -7,7 +7,7 @@ namespace Cf.Libs.Service
     {
         public static void AddCoreServices(this IServiceCollection services)
         {
-            services.AddTransient<IUserProfileService, UserProfileService>();
+            services.AddScoped<IUserProfileService, UserProfileService>();
         }
     }
 }

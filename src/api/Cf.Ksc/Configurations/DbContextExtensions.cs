@@ -15,13 +15,8 @@ namespace Cf.Ksc.Configurations
 
             services
                 .AddDbContext<KscDbContext>(options => options.UseMySql(sqlConnectionString))
-                .AddScoped<DbContext, KscDbContext>()
-                .AddScoped<ApplicationDbContext, KscDbContext>();
-        }
-
-        public static void AddUnitOfWork(this IServiceCollection services)
-        {
-            services.AddScoped<IUnitOfWork, UnitOfWork<KscDbContext>>();
+                .AddScoped<ApplicationDbContext, KscDbContext>()
+                .AddScoped<IUnitOfWork, UnitOfWork<ApplicationDbContext>>();
         }
     }
 }

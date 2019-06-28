@@ -22,8 +22,7 @@ namespace Cf.Ksc.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            _service.Count();
-            return new string[] { "value1", "value2" };
+            return new string[] { "value1", _service.Count().ToString() };
         }
 
         // GET api/values/5

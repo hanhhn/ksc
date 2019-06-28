@@ -19,7 +19,7 @@ namespace Cf.Libs.Service.Profile
         {
             var t = _userProfileRepository.Add(new UserProfile()
             {
-                Note = "12"
+                Note = DateTime.Now.ToLongTimeString()
             });
 
             return _unitOfWork.SaveChanges();

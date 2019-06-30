@@ -31,8 +31,6 @@ namespace Cf.Ksc
 
             services.AddServicesAndRepository();
 
-            services.AddMapper();
-
             services.AddCors();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -51,9 +49,14 @@ namespace Cf.Ksc
                 app.UseHsts();
             }
 
+
+            app.UseCors(config =>
+            {
+                config.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+            });
+
             app.UseHttpsRedirection();
             app.UseMvc();
-
             dbContext.Database.EnsureCreated();
         }
     }

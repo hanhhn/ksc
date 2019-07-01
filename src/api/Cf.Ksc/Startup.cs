@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cf.Ksc.Configurations;
-using Cf.Ksc.DataAccess.DbContext;
 using Cf.Libs.DataAccess.DbContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,7 +37,7 @@ namespace Cf.Ksc
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, KscDbContext dbContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext dbContext)
         {
             if (env.IsDevelopment())
             {
@@ -50,7 +49,6 @@ namespace Cf.Ksc
                 app.UseHsts();
             }
 
-
             app.UseCors(config =>
             {
                 config.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
@@ -58,7 +56,11 @@ namespace Cf.Ksc
 
             app.UseHttpsRedirection();
             app.UseMvc();
-            dbContext.Database.EnsureCreated();
+
+            if(dbContext != null)
+            {
+                dbContext.Database.EnsureCreated();
+            }
         }
     }
 }

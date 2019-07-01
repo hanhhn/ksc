@@ -10,7 +10,7 @@ RUN dotnet build -c Release
 
 RUN dotnet publish -c Release
 
-RUN dotnet ksc/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publish/Cf.Ksc.dll
+RUN dotnet /app/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publish/Cf.Ksc.dll
 
 FROM node:latest as node-env
 

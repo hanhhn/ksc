@@ -49,6 +49,7 @@ namespace Cf.Ksc
                 app.UseHsts();
             }
 
+
             app.UseCors(config =>
             {
                 config.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
@@ -56,11 +57,7 @@ namespace Cf.Ksc
 
             app.UseHttpsRedirection();
             app.UseMvc();
-
-            if(dbContext != null)
-            {
-                dbContext.Database.EnsureCreated();
-            }
+            dbContext.Database.EnsureCreated();
         }
     }
 }

@@ -28,7 +28,7 @@ WORKDIR /app
 
 RUN rm -r /var/wwww/html/
 
-COPY --from:node-env /app/web/. /var/wwww/html/
+COPY --from=node-env /app/web/. /var/wwww/html/
 
 CMD ["nginx", "-g", "daemon off;"]
 

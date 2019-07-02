@@ -26,4 +26,4 @@ services:
         depends_on:
             - kscapi
         ports:
-            - "3000:3000"
+            - "3000:80"

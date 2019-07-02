@@ -1,6 +1,13 @@
-version: '3'
+version: "3.7"
 
 services:
+    networks:
+      kscfrontend:
+        driver: bridge
+
+      kscbackend:
+        driver: default
+
     kscdb:
         image: mysql:5.7
         networks:
@@ -36,9 +43,3 @@ services:
         ports:
             - "80:80"
         restart: always
-
-    networks:
-      kscfrontend:
-        driver: bridge
-      kscbackend:
-        driver: default

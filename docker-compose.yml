@@ -1,17 +1,8 @@
 version: "3.7"
 
 services:
-    networks:
-      kscfrontend:
-        driver: bridge
-
-      kscbackend:
-        driver: default
-
     kscdb:
         image: mysql:5.7
-        networks:
-          - kscbackend
         volumes:
           - "/home/database:/var/lib/mysql"
         restart: always
@@ -24,8 +15,6 @@ services:
         build:
             context: .
             dockerfile: Dockerfile-api
-        networks:
-          - kscbackend
         depends_on:
             - kscdb
         ports:
@@ -36,10 +25,8 @@ services:
         build:
             context: /src/web
             dockerfile: Dockerfile-web
-        networks:
-          - kscfrontend
         depends_on:
-            - kscdb
+            - kscapi
         ports:
             - "80:80"
         restart: always

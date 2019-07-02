@@ -24,7 +24,7 @@ services:
     kscweb:
         image: "node:8"
         user: "node"
-        working_dir: /home/pjt/src/web
+        working_dir: /home/pjt/ksc/src/web
         environment:
           - NODE_ENV=production
         depends_on:

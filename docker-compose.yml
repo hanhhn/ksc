@@ -23,7 +23,7 @@ services:
             - kscdb
         ports:
             - "8000:8000"
-        restart: always
+        restart: alwaysll
 
     kscweb:
         build:
@@ -39,4 +39,6 @@ services:
 
     networks:
       kscfrontend:
+        driver: bridge
       kscbackend:
+        driver: default

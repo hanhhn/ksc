@@ -14,8 +14,8 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 
 WORKDIR /app
 
-COPY --from=dotnet-build-env /app/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publish .
+Expose 80
 
-Expose 44359
+COPY --from=dotnet-build-env /app/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publish .
 
 ENTRYPOINT ["dotnet", "Cf.Ksc.dll"]

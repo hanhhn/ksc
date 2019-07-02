@@ -7,7 +7,8 @@ services:
             - datafiles: /home/database
         restart: always
         enviroment:
-            MYSQL_ROOT_PASSWORD: @chocon
+            MYSQL_ROOT_PASSWORD: "@chocon"
+            
     kscApi:
         build:
             context: .

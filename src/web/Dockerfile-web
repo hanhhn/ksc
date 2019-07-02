@@ -8,12 +8,6 @@ RUN npm install
 
 RUN npm run build
 
-FROM nginx:latest
+EXPOSE 3000
 
-WORKDIR /
-
-RUN rm -r /usr/share/nginx/html*
-
-COPY --from=node-env /app/web/. /usr/share/nginx/html
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]

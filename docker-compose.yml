@@ -22,16 +22,11 @@ services:
         restart: always
 
     kscweb:
-        image: "node:8"
-        user: "node"
-        working_dir: /home/pjt/ksc/src/web
-        environment:
-          - NODE_ENV=production
+        build:
+            context: src/web
+            dockerfile: Dockerfile-web
         depends_on:
-            - kscapi
-        expose:
-          - "8081"
+            - kscdb
         ports:
-          - "80:8081"
-        command: "npm start"
+            - "3000:3000"
         restart: always

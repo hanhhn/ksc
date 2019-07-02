@@ -6,7 +6,7 @@ services:
         volumes:
             - datafiles: /home/database
         restart: always
-        enviroment:
+        environment:
             MYSQL_ROOT_PASSWORD: "@chocon"
             
     kscApi:

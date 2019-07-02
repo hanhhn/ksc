@@ -19,7 +19,7 @@ services:
             - kscdb
         ports:
             - "8000:8000"
-        restart: alwaysll
+        restart: always
 
     kscweb:
         image: "node:8"

@@ -4,7 +4,7 @@ services:
     dbContext:
         image: mysql:5.7
         volumes:
-            - datafiles: /home/database
+            - datafiles: /var/lib/mysql
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: "@chocon"

@@ -8,6 +8,8 @@ services:
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: "@chocon"
+        ports:
+            - "3306:3306"
             
     kscapi:
         build:
@@ -16,5 +18,5 @@ services:
         depends_on:
             - dbcontext
         ports:
-            - "5000:5000"
+            - "8000:8000"
         restart: always

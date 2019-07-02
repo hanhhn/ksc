@@ -1,22 +1,8 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2
+FROM node:latest as node-env
 
 COPY . /app
 
 WORKDIR /app
-
-RUN dotnet restore
-
-RUN dotnet build -c Release
-
-RUN dotnet publish -c Release
-
-RUN dotnet /app/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publish/Cf.Ksc.dll
-
-FROM node:latest as node-env
-
-COPY /ksc/src/web/ /app
-
-WORKDIR /app/web/
 
 RUN npm install
 

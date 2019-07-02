@@ -18,12 +18,3 @@ services:
         ports:
             - "5000:5000"
         restart: always
-        
-    kscweb:
-        build:
-            context: src/web
-            dockerfile: Dockerfile
-        depends_on:
-            - kscapi
-        ports:
-            - "3000:80"

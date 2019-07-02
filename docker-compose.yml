@@ -24,12 +24,14 @@ services:
     kscweb:
         image: "node:8"
         user: "node"
-        working_dir: src/web
+        working_dir: /home/pjt/src/web
         environment:
           - NODE_ENV=production
         depends_on:
             - kscapi
         expose:
           - "8081"
+        port:
+          - "80:8081"
         command: "npm start"
         restart: always

@@ -23,7 +23,7 @@ services:
 
     kscweb:
         build:
-            context: /src/web
+            context: src/web
             dockerfile: Dockerfile-web
         depends_on:
             - kscapi

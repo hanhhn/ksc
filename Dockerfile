@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 as dotnet-build-env
 
 COPY . /app
 
@@ -10,25 +10,12 @@ RUN dotnet build -c Release
 
 RUN dotnet publish -c Release
 
-RUN dotnet /app/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publish/Cf.Ksc.dll
-
-FROM node:latest as node-env
-
-COPY /ksc/src/web/ /app
-
-WORKDIR /app/web/
-
-RUN npm install
-
-RUN npm run build
-
-FROM nginx:latest
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 
 WORKDIR /app
 
-RUN rm -r /var/wwww/html/
+COPY --from=dotnet-build-env /app/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publish .
 
-COPY --from=node-env /app/web/. /var/wwww/html/
+Expose 44359
 
-CMD ["nginx", "-g", "daemon off;"]
-
+ENTRYPOINT ["dotnet", "Cf.Ksc.dll"]

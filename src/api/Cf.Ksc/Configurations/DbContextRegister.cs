@@ -11,7 +11,6 @@ namespace Cf.Ksc.Configurations
     {
         public static void AddCustomDbContext(this IServiceCollection services, IConfiguration configuration)
         {
-
             var sqlConnectionString = "server=localhost;database=ksc;user=root;password=@chocon";
 
             services

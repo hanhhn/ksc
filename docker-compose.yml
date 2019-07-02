@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-    dbContext:
+    dbcontext:
         image: mysql:5.7
         volumes:
             - "/home/database:/var/lib/mysql"
@@ -9,17 +9,17 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: "@chocon"
             
-    kscApi:
+    kscapi:
         build:
             context: .
             dockerfile: Dockerfile
         depends_on:
-            - dbContext
+            - dbcontext
         ports:
             - "5000:5000"
         restart: always
         
-    kscUI:
+    kscweb:
         build:
             context: src/web
             dockerfile: Dockerfile

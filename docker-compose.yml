@@ -1,22 +1,42 @@
 version: '3'
 
 services:
-    dbcontext:
+    kscdb:
         image: mysql:5.7
+        networks:
+          - kscbackend
         volumes:
-            - "/home/database:/var/lib/mysql"
+          - "/home/database:/var/lib/mysql"
         restart: always
         environment:
-            MYSQL_ROOT_PASSWORD: "@chocon"
+          MYSQL_ROOT_PASSWORD: "@chocon"
         ports:
-            - "3306:3306"
+          - "3306:3306"
             
     kscapi:
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile-api
+        networks:
+          - kscbackend
         depends_on:
-            - dbcontext
+            - kscdb
         ports:
             - "8000:8000"
         restart: always
+
+    kscweb:
+        build:
+            context: /src/web
+            dockerfile: Dockerfile-web
+        networks:
+          - kscfrontend
+        depends_on:
+            - kscdb
+        ports:
+            - "80:80"
+        restart: always
+
+    networks:
+      kscfrontend:
+      kscbackend:

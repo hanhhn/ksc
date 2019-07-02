@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cf.Libs.Core.Exeptions
 {
-    class RecordNotFoundException
+    public class RecordNotFoundException : Exception
     {
+        public RecordNotFoundException(string msg) : base(msg)
+        {
+        }
     }
 }

@@ -4,7 +4,7 @@ namespace Cf.Libs.Service
 {
     public static class CfServiceMapper
     {
-        public static void AddCfMapper(this IMapperConfigurationExpression configAction)
+        public static void AddCoreMapper(this IMapperConfigurationExpression configAction)
         {
             configAction.AddProfile<CfServiceProfile>();
         }

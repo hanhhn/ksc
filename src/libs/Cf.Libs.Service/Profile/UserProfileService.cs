@@ -3,6 +3,7 @@ using Cf.Libs.Core.Infrastructure.UnitOfWork;
 using Cf.Libs.DataAccess.Entities.Account;
 using Cf.Libs.DataAccess.Repository.UserProfiles;
 using System;
+using System.Collections.Generic;
 
 namespace Cf.Libs.Service.Profile
 {
@@ -15,14 +16,19 @@ namespace Cf.Libs.Service.Profile
             _userProfileRepository = userProfileRepository;
         }
 
-        public int Count()
+        public int Add()
         {
-            var t = _userProfileRepository.Add(new UserProfile()
+            var user = _userProfileRepository.Add(new UserProfile
             {
-                Note = DateTime.Now.ToLongTimeString()
+                Note = DateTime.Now.ToLongDateString()
             });
+            _unitOfWork.SaveChanges();
+            return user.Id;
+        }
 
-            return _unitOfWork.SaveChanges();
+        public IEnumerable<UserProfile> UserProfiles()
+        {
+            return _userProfileRepository.GetAll();
         }
     }
 }

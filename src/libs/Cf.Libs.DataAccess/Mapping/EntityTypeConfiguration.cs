@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Cf.Libs.Core.Infrastructure.Entity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection;
 
 namespace Cf.Libs.DataAccess.Mapping
 {
@@ -7,6 +9,11 @@ namespace Cf.Libs.DataAccess.Mapping
     {
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
+            PropertyInfo prop = typeof(TEntity).GetProperty(nameof(IChangeableEntity.UpdatedToken));
+            if(prop != null)
+            {
+                builder.Property(nameof(IChangeableEntity.UpdatedToken)).IsConcurrencyToken();
+            }
         }
 
         public virtual void ApplyConfiguration(ModelBuilder modelBuilder)

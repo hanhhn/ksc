@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Cf.Libs.DataAccess.Entities.Account;
 using Cf.Libs.Service.Profile;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Cf.Ksc.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/values")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -18,36 +16,18 @@ namespace Cf.Ksc.Controllers
             _service = service;
         }
 
-        // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [Route("profiles")]
+        public IEnumerable<UserProfile> UserProfiles()
         {
-            return new string[] { "value1", _service.Count().ToString() };
+            return _service.UserProfiles();
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet]
+        [Route("add")]
+        public int Add()
         {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return _service.Add();
         }
     }
 }

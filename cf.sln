@@ -21,7 +21,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cf.Ksc.Service", "src\ksc\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cf.Libs.Service", "src\libs\Cf.Libs.Service\Cf.Libs.Service.csproj", "{1E2FD649-9C79-44CD-8F60-0E2AE4634353}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cf.Ksc.Common", "src\ksc\Cf.Ksc.Common\Cf.Ksc.Common.csproj", "{2229B8D8-B107-4FBF-A3D6-4AB866908216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cf.Ksc.Common", "src\ksc\Cf.Ksc.Common\Cf.Ksc.Common.csproj", "{2229B8D8-B107-4FBF-A3D6-4AB866908216}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{9A2BD90F-2501-473C-A0A3-746BA7234775}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		Dockerfile-api = Dockerfile-api
+		src\web\Dockerfile-web = src\web\Dockerfile-web
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

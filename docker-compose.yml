@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-    kscdb:
+    db:
         image: mysql:5.7
         volumes:
           - "/home/database:/var/lib/mysql"
@@ -11,22 +11,24 @@ services:
         ports:
           - "3306:3306"
             
-    kscapi:
+    api:
         build:
             context: .
-            dockerfile: Dockerfile-api
+            dockerfile: Dockerfile
         depends_on:
-            - kscdb
+          - db
+        environment:
+          ASPNETCORE_ENVIRONMENT: "Development" #Production || Staging
         ports:
-            - "8000:8000"
+          - "8000:8000"
         restart: always
 
-    kscweb:
+    web:
         build:
             context: src/web
-            dockerfile: Dockerfile-web
+            dockerfile: Dockerfile
         depends_on:
-            - kscdb
+            - db
         ports:
             - "3000:3000"
         restart: always

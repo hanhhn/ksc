@@ -4,7 +4,8 @@ import { HttpService } from "../../http.service";
 
 export default class Home extends Component {
   state = {
-    count: 0
+    count: 0,
+    list: []
   };
 
   constructor() {
@@ -18,9 +19,13 @@ export default class Home extends Component {
     const service = new HttpService();
     service.doGet("values/add").subscribe(
       res => {
-        console.log(res);
+        this.setState({
+          count: res.body.count
+        });
         service.doGet("values/profiles").subscribe(res => {
-          console.log(res);
+          this.setState({
+            list: res.body
+          })
         });
       },
       err => {
@@ -34,6 +39,12 @@ export default class Home extends Component {
       <div>
         <button onClick={this.onCount}>increase</button>
         <h1>Count: {this.state.count}</h1>
+        <hr />
+        <ul>
+          {this.state.list.forEach((value, index) => {
+            <li key={index}>{value.updateTocken}</li>;
+          })}
+        </ul>
       </div>
     );
   }

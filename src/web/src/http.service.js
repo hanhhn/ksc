@@ -2,7 +2,7 @@ import * as axios from 'axios';
 import { from } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const API_URL = 'http://45.32.125.153:8000/api'
+const API_URL = 'http://45.32.125.153:5000/api'
 
 export class HttpService {
     constructor() {

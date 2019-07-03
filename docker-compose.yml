@@ -18,9 +18,10 @@ services:
         depends_on:
           - db
         environment:
-          ASPNETCORE_ENVIRONMENT: "Development" #Production || Staging
+          ASPNETCORE_ENVIRONMENT: "Staging" #Development || Production || Staging
         ports:
-          - "8000:8000"
+          - "5000:5000"
+          - "5001:5001"
         restart: always
 
     web:

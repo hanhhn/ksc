@@ -1,4 +1,4 @@
-FROM node:8 as node-env
+FROM node:8.16 as node-env
 
 COPY . /app
 

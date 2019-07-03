@@ -16,9 +16,9 @@ export default class Home extends Component {
     e.preventDefault();
     const service = new HttpService();
     service.doGet("values/add").subscribe(
-      res => {
+      data => {
         this.setState({
-          count: res.body.count
+          count: data.count
         });
         this.getAll();
       },
@@ -31,10 +31,10 @@ export default class Home extends Component {
   getAll() {
     const service = new HttpService();
     service.doGet("values/profiles").subscribe(
-      res => {
+      data => {
         this.setState({
-          count: res.body.length,
-          list: res.body
+          count: data.length,
+          list: data
         });
       },
       err => {

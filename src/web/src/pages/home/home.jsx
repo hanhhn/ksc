@@ -8,6 +8,12 @@ export default class Home extends Component {
     list: []
   };
 
+  constructor(prop) {
+    super(prop)
+
+    this.onCount = this.onCount.bind(this);
+  }
+
   componentDidMount() {
     this.getAll();
   }
@@ -18,7 +24,7 @@ export default class Home extends Component {
     service.doGet("values/add").subscribe(
       data => {
         this.setState({
-          count: data.count
+          count: data
         });
         this.getAll();
       },
@@ -51,7 +57,7 @@ export default class Home extends Component {
         <hr />
         <ul>
           {this.state.list.map((value, index) => {
-            return <li key={index}>{value.updateTocken}</li>;
+            return <li key={index}>{value.updatedToken}</li>;
           })}
         </ul>
       </div>

@@ -16,6 +16,8 @@ WORKDIR /app
 
 COPY --from=dotnet-build-env /app/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publish .
 
-Expose 5000
+RUN ll
+
+EXPOSE 5000
 
 ENTRYPOINT ["dotnet", "Cf.Ksc.dll"]

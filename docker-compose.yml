@@ -3,18 +3,20 @@ version: "3.7"
 services:
     db:
         image: mysql:5.7
+        container_name: ksc_db
         volumes:
           - "/app/ksc/var/lib/mysql:/var/lib/mysql"
-        restart: always
         environment:
           MYSQL_ROOT_PASSWORD: "@chocon"
         ports:
           - "3306:3306"
+        restart: always
             
     api:
         build:
-            context: .
-            dockerfile: Dockerfile
+          context: .
+          dockerfile: Dockerfile
+        container_name: ksc_api
         volumes:
           - "/app/ksc/api:/app"
         depends_on:
@@ -29,8 +31,9 @@ services:
 
     web:
         build:
-            context: src/web
-            dockerfile: Dockerfile
+          context: src/web
+          dockerfile: Dockerfile
+        container_name: ksc_web
         volumes:
           - "/app/ksc/web:/app"
         depends_on:

@@ -17,8 +17,8 @@ services:
           context: .
           dockerfile: Dockerfile
         container_name: ksc_api
-        volumes:
-          - /app/ksc/api:/app
+        #volumes:
+        #  - /app/ksc/api:/app
         depends_on:
           - db
         environment:
@@ -36,8 +36,8 @@ services:
           context: src/web
           dockerfile: Dockerfile
         container_name: ksc_web
-        volumes:
-          - "/app/ksc/web:/app"
+        #volumes:
+        #  - "/app/ksc/web:/app"
         depends_on:
             - api
         ports:

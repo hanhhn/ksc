@@ -16,6 +16,8 @@ WORKDIR /app
 
 COPY --from=dotnet-build-env /app/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publish .
 
-EXPOSE 5000
+RUN dotnet dev-certs https --trust
+
+EXPOSE 80 443
 
 ENTRYPOINT ["dotnet", "Cf.Ksc.dll"]

@@ -17,16 +17,18 @@ services:
           context: .
           dockerfile: Dockerfile
         container_name: ksc_api
-        volumes:
-          - "/app/ksc/api:/app"
+        #volumes:
+        #  - /app/ksc/api:/app
         depends_on:
           - db
         environment:
           #https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host?view=aspnetcore-2.2
-          ASPNETCORE_ENVIRONMENT: "Staging" #Development || Production || Staging
+          - ASPNETCORE_ENVIRONMENT: Staging #Development || Production || Staging
+          - ASPNETCORE_URLS: https://localhost;http://localhost
+          #- ASPNETCORE_HTTPS_PORT: 5001
         ports:
-          - "5000:5000"
-          - "5001:5001"
+          - "5000:80"
+          - "5001:443"
         restart: always
 
     web:
@@ -34,8 +36,8 @@ services:
           context: src/web
           dockerfile: Dockerfile
         container_name: ksc_web
-        volumes:
-          - "/app/ksc/web:/app"
+        #volumes:
+        #  - "/app/ksc/web:/app"
         depends_on:
             - api
         ports:

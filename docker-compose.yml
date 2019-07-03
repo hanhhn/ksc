@@ -23,9 +23,9 @@ services:
           - db
         environment:
           #https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host?view=aspnetcore-2.2
-          - ASPNETCORE_ENVIRONMENT: Staging #Development || Production || Staging
-          - ASPNETCORE_URLS: https://localhost;http://localhost
-          #- ASPNETCORE_HTTPS_PORT: 5001
+          - ASPNETCORE_ENVIRONMENT=Staging #Development || Production || Staging
+          - ASPNETCORE_URLS=https://localhost;http://localhost
+          - ASPNETCORE_HTTPS_PORT=5001
         ports:
           - "5000:80"
           - "5001:443"

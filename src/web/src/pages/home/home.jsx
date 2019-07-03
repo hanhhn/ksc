@@ -8,11 +8,9 @@ export default class Home extends Component {
     list: []
   };
 
-  constructor() {
-    super();
+  componentDidMount() {
+    this.getAll();
   }
-
-  componentWillMount() {}
 
   onCount(e) {
     e.preventDefault();
@@ -22,10 +20,21 @@ export default class Home extends Component {
         this.setState({
           count: res.body.count
         });
-        service.doGet("values/profiles").subscribe(res => {
-          this.setState({
-            list: res.body
-          })
+        this.getAll();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  getAll() {
+    const service = new HttpService();
+    service.doGet("values/profiles").subscribe(
+      res => {
+        this.setState({
+          count: res.body.length,
+          list: res.body
         });
       },
       err => {
@@ -41,8 +50,8 @@ export default class Home extends Component {
         <h1>Count: {this.state.count}</h1>
         <hr />
         <ul>
-          {this.state.list.forEach((value, index) => {
-            <li key={index}>{value.updateTocken}</li>;
+          {this.state.list.map((value, index) => {
+            return <li key={index}>{value.updateTocken}</li>;
           })}
         </ul>
       </div>

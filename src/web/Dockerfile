@@ -8,8 +8,6 @@ RUN npm install
 
 RUN npm run build
 
-RUN ll
-
 EXPOSE 3000
 
 ENTRYPOINT ["npm", "start"]

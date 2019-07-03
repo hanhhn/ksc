@@ -18,6 +18,7 @@ services:
         depends_on:
           - db
         environment:
+          #https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host?view=aspnetcore-2.2
           ASPNETCORE_ENVIRONMENT: "Staging" #Development || Production || Staging
         ports:
           - "5000:5000"

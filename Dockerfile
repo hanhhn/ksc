@@ -18,4 +18,4 @@ COPY --from=dotnet-build-env /app/src/api/Cf.Ksc/bin/Release/netcoreapp2.2/publi
 
 Expose 5000 5001
 
-ENTRYPOINT ["dotnet", "Cf.Ksc.dll", "--launch-profile", "Docker"]
+ENTRYPOINT ["dotnet", "Cf.Ksc.dll"]

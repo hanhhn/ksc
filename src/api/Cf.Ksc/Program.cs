@@ -13,7 +13,8 @@ namespace Cf.Ksc
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-            //.UseUrls("http://*:8000")
+            .UseUrls("http://*:5000;https://*:5001")
+            .UseSetting("https_port", "5001")
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory())
             .UseIISIntegration()

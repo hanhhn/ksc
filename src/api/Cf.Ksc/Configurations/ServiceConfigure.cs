@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Cf.Ksc.Configurations
 {
-    public static class ServiceRegister
+    public static class ServiceConfigure
     {
         public static void AddServicesAndRepository(this IServiceCollection services)
         {

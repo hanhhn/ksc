@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Cf.Libs.Service.Email
 {
-    class IEmailSenderService
+    public interface IEmailSenderService : IEmailSender
     {
     }
 }

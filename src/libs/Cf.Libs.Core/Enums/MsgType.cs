@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Cf.Libs.Core.Enums
+﻿namespace Cf.Libs.Core.Enums
 {
-    public class MsgType
+    public enum MsgType : byte
     {
+        Success = 0x01,
+        Error,
+        Info,
+        Warning
     }
 }

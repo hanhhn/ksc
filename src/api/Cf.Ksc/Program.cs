@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System.IO;
 
 namespace Cf.Ksc
@@ -26,8 +28,22 @@ namespace Cf.Ksc
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-            //.UseKestrel()
+            .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory())
+            //.ConfigureAppConfiguration((hostingContext, config) =>
+            //{
+            //    var env = hostingContext.HostingEnvironment;
+            //    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            //          .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+            //    config.AddEnvironmentVariables();
+            //})
+            //.ConfigureLogging((hostingContext, logging) =>
+            //{
+            //    logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+            //    logging.AddConsole();
+            //    logging.AddDebug();
+            //    logging.AddEventSourceLogger();
+            //})
             .UseIISIntegration()
             .UseStartup<Startup>();
     }

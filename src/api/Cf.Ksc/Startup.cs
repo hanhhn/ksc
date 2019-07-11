@@ -34,18 +34,20 @@ namespace Cf.Ksc
         public void ConfigureServices(IServiceCollection services)
         {
             // IHostingEnvironment (stored in _env) is injected into the Startup class.
-            //if (!_env.IsDevelopment())
-            //{
-            //    services.AddHttpsRedirection(options =>
-            //    {
-            //        options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
-            //        options.HttpsPort = 443;
-            //    });
-            //}
+            if (!_env.IsDevelopment())
+            {
+                services.AddHttpsRedirection(options =>
+                {
+                    options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
+                    options.HttpsPort = 443;
+                });
+            }
 
             services.AddCustomDbContext(Configuration);
 
             services.AddCustomIdentity();
+
+            services.AddAuthorizationHandler();
 
             services.AddServicesAndRepository();
 

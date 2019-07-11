@@ -15,6 +15,7 @@ namespace Cf.Libs.Service.Profile
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly RoleManager<Role> _roleManager;
         private readonly IEmailSenderService _emailSender;
         private readonly IUserProfileRepository _userProfileRepository;
 

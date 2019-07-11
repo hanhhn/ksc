@@ -6,6 +6,7 @@ namespace Cf.Ksc.Service
     {
         public static void AddKscServices(this IServiceCollection services)
         {
+
         }
     }
 }

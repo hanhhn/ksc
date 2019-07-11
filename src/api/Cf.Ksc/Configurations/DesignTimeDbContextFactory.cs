@@ -9,6 +9,7 @@ namespace Cf.Ksc.Configurations
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<KscDbContext>
     {
         /// <summary>
+        /// cmd in \ksc\src\api\Cf.Ksc
         /// dotnet ef migrations add init -p G:\ksc\src\ksc\Cf.Ksc.DataAccess\Cf.Ksc.DataAccess.csproj
         /// dotnet ef database update
         /// </summary>

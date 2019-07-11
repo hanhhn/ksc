@@ -1,5 +1,6 @@
 ﻿using Cf.Libs.Core.Infrastructure.Context;
 using Cf.Libs.DataAccess.Entities.Account;
+using Cf.Libs.DataAccess.Seed;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,8 +21,8 @@ namespace Cf.Libs.DataAccess.DbContext
             //builder.HasDefaultSchema(SchemaDefault);
 
             base.OnModelCreating(builder);
-
             TablesBuilder.Build(builder);
+            CfSeedDefault.Seeding(builder);
         }
     }
 }

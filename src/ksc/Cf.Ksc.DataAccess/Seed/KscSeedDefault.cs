@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Cf.Ksc.DataAccess.Seed
 {
     public class KscSeedDefault
     {
+        public static void Seeding(ModelBuilder builder)
+        {
+
+        }
     }
 }

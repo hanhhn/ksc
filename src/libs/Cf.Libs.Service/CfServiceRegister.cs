@@ -12,6 +12,7 @@ namespace Cf.Libs.Service
             services.AddScoped<IUserProfileService, UserProfileService>();
             services.AddScoped<IEmailSender, EmailSenderService>();
             services.AddScoped<IEmailSenderService, EmailSenderService>();
+            services.AddScoped<IAccountService, AccountService>();
         }
     }
 }

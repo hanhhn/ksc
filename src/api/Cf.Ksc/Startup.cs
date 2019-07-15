@@ -78,7 +78,6 @@ namespace Cf.Ksc
                 app.UseHsts();
             }
 
-
             app.UseCors(config =>
             {
                 config.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();

@@ -14,7 +14,7 @@ namespace Cf.Ksc.Configurations
             var sqlConnectionString = configuration.GetValue<string>("DefaultConnectionString");
 
             services
-                .AddDbContext<KscDbContext>(options => options.UseMySql(sqlConnectionString))
+                .AddDbContext<KscDbContext>(options => options.UseSqlServer(sqlConnectionString))
                 .AddScoped<ApplicationDbContext, KscDbContext>()
                 .AddScoped<IUnitOfWork, UnitOfWork<ApplicationDbContext>>();
         }

@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Attributes\ManagerAuthorizationHandler.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Attributes\" />
     <Folder Include="Controllers\" />
     <Folder Include="Globalization\" />
     <Folder Include="Infrastructure\" />
